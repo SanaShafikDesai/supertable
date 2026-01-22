@@ -1,0 +1,26 @@
+<div class="layout">
+  <div class="menuItem">
+    <ul>
+      <li *ngFor="let mode of modes">
+        <button
+          pButton
+          
+          (click)="selectMode(mode)"
+        >
+          {{ mode.label }}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <super-table
+      *ngIf="mode"
+      [config]="mode.config"
+      [data]="mode.data"
+    >
+    </super-table>
+  </div>
+</div>
+
+<router-outlet />
