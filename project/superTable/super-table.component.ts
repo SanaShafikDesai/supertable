@@ -106,4 +106,5 @@ export class SuperTableComponent<T extends Record<string, unknown>> {
     isFirstPage(): boolean {
         return this.data ? this.first === 0 : true;
     }
+
 }

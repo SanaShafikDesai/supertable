@@ -1,5 +1,4 @@
 
-import { ColumnFilter } from 'primeng/table';
 import { customers } from '../../src/data/data';
 import { TemplateRef } from '@angular/core';
 
@@ -56,7 +55,8 @@ export interface SuperTableConfig<T> {
   resizableColumns?: boolean;
   columnResizeMode: 'fit' | 'expand';
   reorderableColumns?: boolean;
-
+  editCell?: boolean;
+  rowEdit?:boolean;
   expansionTemplate?: TemplateRef<{ $implicit: T }>;
 
   stateKey?: string;
@@ -160,7 +160,23 @@ export const TABLE_MODES: TableMode[] = [
       
     }
   },
-
+//filter-global
+  {
+    label: 'Filter – Global',
+    data: customers,
+    config: {
+      caption: 'Global Filters',
+      columnResizeMode:'fit',
+      globalFilter:true,
+      globalFilterFields: ['name', 'country', 'company', 'status'],
+      columns: [
+        { field: 'name', header: 'Name' },
+        { field: 'country', header: 'Country' },
+        { field: 'company', header: 'Company' },
+        { field: 'status', header: 'Status'}
+      ]
+    }
+  },
 //filter-basic
   {
     label: 'Filter – Basic',
@@ -276,24 +292,24 @@ export const TABLE_MODES: TableMode[] = [
     }
   },
   //frozen
-{
-    label: 'Frozen',
-    data: customers,
-    config: {
-      caption: 'Frozen',
-      columnResizeMode:'fit',
-      rows: 10,
-      scrollable:true,
-      scrollHeight:'200px',
-      frozen:true,
-      columns: [
-        { field: 'name', header: 'Name', width: '200px' },
-        { field: 'country', header: 'Country', width: '150px' },
-        { field: 'company', header: 'Company', width: '200px' },
-        { field: 'balance', header: 'Balance', width: '150px' }
-      ]
-    }
-  },
+// {
+//     label: 'Frozen',
+//     data: customers,
+//     config: {
+//       caption: 'Frozen',
+//       columnResizeMode:'fit',
+//       rows: 10,
+//       scrollable:true,
+//       scrollHeight:'200px',
+//       frozen:true,
+//       columns: [
+//         { field: 'name', header: 'Name', width: '200px' },
+//         { field: 'country', header: 'Country', width: '150px' },
+//         { field: 'company', header: 'Company', width: '200px' },
+//         { field: 'balance', header: 'Balance', width: '150px' }
+//       ]
+//     }
+//   },
 
   //expand column
   
@@ -348,6 +364,23 @@ export const TABLE_MODES: TableMode[] = [
         { field: 'balance', header: 'Balance', width: '150px' }
       ]
     }
-  }
+  },
+   //edit row
+  // {
+  //   label: 'edit row',
+  //   data: customers,
+  //   config: {
+  //     caption: 'Edit Row',
+  //     columnResizeMode:'fit',
+  //     rows: 10,
+  //     rowEdit:true,
+  //     columns: [
+  //       { field: 'name', header: 'Name', width: '200px' },
+  //       { field: 'country', header: 'Country', width: '150px' },
+  //       { field: 'company', header: 'Company', width: '200px' },
+  //       { field: 'balance', header: 'Balance', width: '150px' }
+  //     ]
+  //   }
+  // }
 
 ];
