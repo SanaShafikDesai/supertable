@@ -330,6 +330,24 @@ export const TABLE_MODES: TableMode[] = [
         { field: 'balance', header: 'Balance', width: '150px' }
       ]
     }
+  },
+  //reorder
+  {
+    label: 'reorder',
+    data: customers,
+    config: {
+      caption: 'Reorder column',
+      columnResizeMode:'fit',
+      rows: 10,
+      resizableColumns:true,
+      reorderableColumns:true,
+      columns: [
+        { field: 'name', header: 'Name', width: '200px' },
+        { field: 'country', header: 'Country', width: '150px' },
+        { field: 'company', header: 'Company', width: '200px' },
+        { field: 'balance', header: 'Balance', width: '150px' }
+      ]
+    }
   }
 
 ];

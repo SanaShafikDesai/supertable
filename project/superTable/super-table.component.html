@@ -63,6 +63,7 @@
         *ngFor="let col of columns"
         [pSortableColumn]="col.sortable ? col.field : null"
         pResizableColumn
+        pReorderableColumn
         [style.width]="col.width"
       >
         {{ col.header }}
