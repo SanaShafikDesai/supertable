@@ -12,24 +12,11 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 
-import { SuperTableConfig } from './super-table.types';
+import { SuperTableConfig, CustomerData } from '../superTable';
 import { SelectButton } from 'primeng/selectbutton';
 import { FilterMetadata } from 'primeng/api';
 
-interface CustomerData{
-  
-    id: number,
-    name: string,
-    country: string,
-    countryCode: string,
-    flagUrl: string,
-    company: string,
-    representative: string,
-    avatarUrl: string,
-    balance: number,
-    status: string
-  
-}
+
 @Component({
   selector: 'super-table',
   standalone: true,

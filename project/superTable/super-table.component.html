@@ -30,12 +30,7 @@
 >
   <!-- ================= CAPTION ================= -->
   <ng-template pTemplate="caption">
-    <ng-container *ngIf="config.captionTemplate; else defaultCaption">
-      <ng-container *ngTemplateOutlet="config.captionTemplate"></ng-container>
-    </ng-container>
-
-    <ng-template #defaultCaption>
-      <div class="table-caption">
+      <div>
         {{ config.caption }}
       </div>
 
@@ -48,8 +43,6 @@
         (input)="table.filterGlobal($any($event.target).value, 'contains')"
       />
     </ng-template>
-  </ng-template>
-
   <!-- ================= HEADER ================= -->
   <ng-template pTemplate="header" let-columns>
     <tr>
@@ -122,15 +115,9 @@
           </p-cellEditor>
         </ng-container> -->
        
-        <ng-container *ngIf="col.bodyTemplate; else defaultCell">
-          <ng-container
-            *ngTemplateOutlet="col.bodyTemplate; context: { $implicit: row }"
-          ></ng-container>
-        </ng-container>
-
-        <ng-template #defaultCell>
+        
           {{ row[col.field] }}
-        </ng-template>
+       
       </td>    
     </tr>
   </ng-template>

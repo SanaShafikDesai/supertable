@@ -1,8 +1,18 @@
 
 import { customers } from '../../src/data/data';
-import { TemplateRef } from '@angular/core';
 
-
+export interface CustomerData{ 
+    id: number,
+    name: string,
+    country: string,
+    countryCode: string,
+    flagUrl: string,
+    company: string,
+    representative: string,
+    avatarUrl: string,
+    balance: number,
+    status: string 
+}
 export interface SuperTableColumn<T> {
   field: keyof T & string;
   header: string;
@@ -30,8 +40,6 @@ export interface SuperTableConfig<T> {
   conditionalStyle?:boolean;
 
   caption?: string;
-  captionTemplate?: TemplateRef<void>;
- 
   paginator?: boolean;
   rows?: number;
   rowsPerPageOptions?: number[];
@@ -57,10 +65,7 @@ export interface SuperTableConfig<T> {
   reorderableColumns?: boolean;
   editCell?: boolean;
   rowEdit?:boolean;
-  expansionTemplate?: TemplateRef<{ $implicit: T }>;
-
   stateKey?: string;
-
   loading?: boolean;
 }
 export const TABLE_MODES: TableMode[] = [
