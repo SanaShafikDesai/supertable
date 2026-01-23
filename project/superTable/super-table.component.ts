@@ -30,7 +30,7 @@ import { FilterMetadata } from 'primeng/api';
   ],
   templateUrl: './super-table.component.html',
   styleUrls: ['./super-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+ 
 })
 
 export class SuperTableComponent<T extends Record<string, unknown>> {
